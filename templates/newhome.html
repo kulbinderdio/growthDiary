@@ -1,0 +1,318 @@
+{% import "bootstrap/form.html" as wtf %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+        <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+        <!-- Bootstrap CSS -->
+        {{ bootstrap.load_css() }}
+
+        <title>Growth Diary</title>
+
+        <link href="static/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+        <link href="static/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <h3> GROWTH DIARY </h3>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <form  action="/" method="POST">
+                <div class="container-fluid">
+
+                        <div class="form-group">
+                            {{ form.hidden_tag() }}
+                        </div>
+                    <!-- Content Row -->
+
+                    <div class="row mb-2">
+                          <div class="col-md-12">
+                              <div class="d-flex justify-content-between align-items-center breaking-news bg-white">
+                                  <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                                    {% for news in data %}
+                                      <a href="{{news.link}}">{{news.title}}</a> <span class="dot"></span> •
+                                    {% endfor %}
+                                  </marquee>
+                              </div>
+                          </div>
+                      </div>
+
+                    <div class="row">
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-6 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+
+                                    <div class="row form-group">
+                                    <div class="h5 mb-0 font-weight-bold text-primary">
+                                        <label class="form-control-label" for="edate"></label>
+                                        {{form.edate(enable=false)}} <label id="myday"> {{weekday}}</label>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="h5 mb-0 font-weight-bold text-primary">
+                                            STUFF
+                                            </div>
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800">
+                                            Gratitude : Focus  : Deep learning : Habits <BR><BR>
+                                            <a href="https://www.youtube.com/channel/UCtYzVCmNxrshH4_bPO_-Y-A">The Art of Improvement</a><BR>
+                                            <a href="https://www.youtube.com/channel/UCoOae5nYA7VqaXzerajD0lg">Ali Abdaal</a><BR>
+                                            <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?o=2&p=288&l=ez&f=ifr&linkID=b228f0f7ab89c578462f8eae7e50530e&t=ksdio-21&tracking_id=ksdio-21"
+                                                    width="320" height="50" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+                                            </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+
+                    <div class="row mb-2">
+                      <div class="col-12">
+                          <div class="card border-left-warning shadow h-100 py-2">
+                              <div class="card-body">
+                                  <div class="row no-gutters align-items-center">
+                                      <div class="col mr-2">
+                                          <h6 class="m-0 font-weight-bold text-primary">HEADLINE</h6>
+                                          {{ form.headline }}
+                                      </div>
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Area Chart -->
+                        <div class="col-sm-12  col-lg-6  col-md-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">GRATITUDE</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                  <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                      {{ form.grateful(rows='8') }}
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-lg-6  col-md-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">TODAY'S GOALS</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                  <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                      {{ form.goals(rows='8') }}
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <!-- Area Chart -->
+
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+    <!--                        <div class="col-12">-->
+    <!--                            <div class="card shadow mb-4">-->
+    <!--                                &lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
+    <!--                                <div-->
+    <!--                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">-->
+
+    <!--                                      <div class="input-group flex-fill">-->
+    <!--                                        <h6 class="m-0 font-weight-bold text-primary">TO DO (STILL TO IMPLEMENT)</h6>-->
+    <!--                                      </div>-->
+
+    <!--                                </div>-->
+    <!--                                &lt;!&ndash; Card Body &ndash;&gt;-->
+    <!--                                <div class="card-body">-->
+    <!--                                  <div class="container">-->
+    <!--                                    <div class="row">-->
+    <!--                                      <div class="col-12">-->
+    <!--                                        <form class="form-inline" action="/add" accept-charset="UTF-8" method="get">-->
+    <!--                                          <div class="input-group flex-fill">-->
+    <!--                                            <input type="search" name="search" id="search" value="" placeholder="Task ..." class="form-control" aria-label="Search this site">-->
+    <!--                                            <div class="input-group-append">-->
+    <!--                                              <input type="submit" name="commit" value="Add" class="btn btn-primary" data-disable-with="Search">-->
+    <!--                                            </div>-->
+
+    <!--                                          </div>-->
+    <!--                                        </form>-->
+    <!--                                      </div>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="row">-->
+    <!--                                        <div class="col-1">-->
+    <!--                                        <button type="button" class="btn btn-secondary">-->
+    <!--                                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">-->
+    <!--                                            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>-->
+    <!--                                          </svg>-->
+    <!--                                        </button>-->
+    <!--                                      </div>-->
+    <!--                                      <div class="col-10 my-auto">-->
+    <!--                                          <div class="h6 mb-0 font-weight-bold text-gray-800">Create the TODO functionality for this little app-->
+    <!--                                          </div>-->
+    <!--                                      </div>-->
+    <!--                                      <div class="col-1 my-auto">-->
+    <!--                                          <input type="checkbox" name="vehicle1" value="Bike">-->
+    <!--                                      </div>-->
+    <!--                                    </div>-->
+
+    <!--                                    <div class="row">-->
+    <!--                                        <div class="col-1">-->
+    <!--                                          <button type="button" class="btn btn-secondary">-->
+    <!--                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">-->
+    <!--                                              <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>-->
+    <!--                                            </svg>-->
+    <!--                                          </button>-->
+    <!--                                        </div>-->
+    <!--                                        <div class="col-10 my-auto">-->
+    <!--                                            <div class="h6 mb-0 font-weight-bold text-gray-800 align-middle">Get ready for world peace-->
+    <!--                                            </div>-->
+    <!--                                        </div>-->
+    <!--                                        <div class="col-1 my-auto">-->
+    <!--                                            <input type="checkbox" name="vehicle1" value="Bike">-->
+    <!--                                        </div>-->
+    <!--                                      </div>-->
+    <!--                                    </div>-->
+    <!--                                  </div>-->
+    <!--                                </div>-->
+    <!--                            </div>-->
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">NOTES</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+<!--                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true" id="test">-->
+                                            {{ form.notes(rows='8') }}
+
+<!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="input-group-append">
+<!--                              <input type="submit" name="submit" value="submit" class="btn btn-primary" data-disable-with="Search">-->
+                                <div class="form-group">
+                                    {{ form.submit(class='btn btn-outline-primary') }}
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                    </div>
+                    </form>
+
+                    <!-- Content Row -->
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        <!-- </div> -->
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+
+    <script type="text/javascript">
+        var weekday = new Array(7);
+        weekday[0] = "SUNDAY";
+        weekday[1] = "MONDAY";
+        weekday[2] = "TUESDAY";
+        weekday[3] = "WEDNESDAY";
+        weekday[4] = "THURSDAY";
+        weekday[5] = "FRIDAY";
+        weekday[6] = "SATURDAY";
+
+        $("#datepicker")
+            .datepicker({  dateFormat: "yy-mm-dd",
+                onSelect: function(dateText) {
+                    $(this).change();
+                    $("#myday").html(weekday[new Date(dateText).getDay()]);
+                    $("#edate").val(dateText);
+
+                    fetch('/date/'+dateText).then(function(response){
+                        response.json().then(function(data) {
+                        console.table(data)
+                            $("#headline").val(data.headline)
+                            $("#goals").val(data.goals)
+                            $("#notes").val(data.notes)
+                            $("#grateful").val(data.grateful)
+                        });
+                    });
+                }
+            });
+
+    </script>
+
+      {{ datepicker.loader() }} {# to load jQuery-ui #}
+      {{ datepicker.picker(id=".dp",dateFormat='yy-mm-dd') }}
+      {{ bootstrap.load_js() }}
+</body>
+</html>
