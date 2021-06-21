@@ -16,15 +16,23 @@ Notes is for you to keep a record of the day, what went well, what didn't, how w
 
 A good practise is to complete the week's Headline items and goals on a Sunday evening ready for tthe day ahead. Write down those things that clutter up your brain.
 
-* Improvements *
+## Setup
+1. Requires Python
+2. set up environment by using requirements.txt (pip -r requirements.txt)
+3. python diary.py
+
+## Improvements 
 1. I have thought about adding a TO DO list. In fact the HTML page has some layoout code for this that has been commented out. I'm currently in 2 minds about whether 
 this applicztion should have a To Do list
 2. No check if yoou have updated any information and the decide to navigate away without saving first
 3. May this a multi user application with login functionality
 4. The requirements document has far too many unused libraries in there, a consequence of the mess that my machine is in
+5. Dockerize
 
 
 I have put a plug in the top right hand corner for Amazon. Feel free to change, delete oor if you fancy it click it.
 
 
 A couple of screen shots
+![screencapture-2](https://user-images.githubusercontent.com/4700433/122775825-72f31400-d2a2-11eb-9805-a626decd879e.png)
+![screencapture-1](https://user-images.githubusercontent.com/4700433/122775841-75556e00-d2a2-11eb-90e2-b29aa0a34950.png)
