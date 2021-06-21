@@ -18,7 +18,7 @@ A good practise is to complete the week's Headline items and goals on a Sunday e
 
 ## Setup
 1. Requires Python
-2. set up environment by using requirements.txt (pip -r requirements.txt)
+2. set up environment by using requirements.txt (pip install -r requirements.txt)
 3. python diary.py
 
 ## Improvements 
