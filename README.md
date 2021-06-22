@@ -18,8 +18,14 @@ A good practise is to complete the week's Headline items and goals on a Sunday e
 
 ## Setup
 1. Requires Python
-2. set up environment by using requirements.txt (pip install -r requirements.txt)
-3. python diary.py
+2. python3 -m venv venv
+3. source venv/bin/activate (different commands under windows required)
+4. pip install -r requirements.txt
+5. export FLASK_APP=diary.py (different commands under windows required)
+6. flask db init (for creation of new database - code now uses Flask-Migrate)
+7. flask db migrate
+8. flask db upgrade
+9. python3 diary.py
 
 ## Improvements 
 1. I have thought about adding a TO DO list. In fact the HTML page has some layoout code for this that has been commented out. I'm currently in 2 minds about whether 
