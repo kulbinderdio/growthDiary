@@ -73,7 +73,7 @@ def home():
             form.goals.data = entry.goals
             form.notes.data = entry.notes
             form.grateful.data = entry.grateful
-            form.edate=entry.date
+            # form.edate=today
     return render_template("newhome.html", form=form, data=news, weekday=weekdays[weekday])
 
 @app.route("/date/<datee>")
