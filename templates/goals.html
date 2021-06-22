@@ -1,0 +1,491 @@
+{% import "bootstrap/form.html" as wtf %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+
+        <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+        <!-- Bootstrap CSS -->
+        {{ bootstrap.load_css() }}
+
+        <title>Growth Diary</title>
+
+        <link href="/static/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+        <link href="/static/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <form  action="/goals" method="POST">
+            <div id="content">
+                <div class="form-group">
+                    {{ form.hidden_tag() }}
+                </div>
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <h3> GROWTH DIARY - {{form.year}} Goals</h3>
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="/" role="button">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Home</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+
+                <div class="container-fluid">
+
+                        <div class="form-group">
+
+                        </div>
+                    <!-- Content Row -->
+
+                    <div class="row mb-2">
+                      <div class="col-12">
+                          <div class="card border-left-warning shadow h-100 py-2">
+                              <div class="card-body">
+                                  <div class="row no-gutters align-items-center">
+                                      <div class="col mr-2">
+                                          <h6 class="m-0 font-weight-bold text-primary">YEARLY
+                                          </h6>
+                                      </div>
+                                      {{ form.yearly(rows='6') }}
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Area Chart -->
+                        <div class="col-sm-12  col-lg-6  col-md-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">QUARTER 1</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                  <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                      {{ form.quarter1(rows='4') }}
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-lg-6  col-md-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">QUARTER 2</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                  <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                      {{ form.quarter2(rows='4') }}
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12  col-lg-6  col-md-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">QUARTER 3</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                  <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                        {{ form.quarter3(rows='4') }}
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-lg-6  col-md-6">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">QUARTER 4</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                  <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                        {{ form.quarter4(rows='4') }}
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <!-- Area Chart -->
+
+                    </div>
+
+                    <div class="row">
+
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">JANUARY</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.january(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">FEBRUARY</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.february(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">MARCH</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.march(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">APRIL</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.april(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">MAY</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.may(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">JUNE</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.june(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">JULY</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.july(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">AUGUST</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.august(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">SEPTEMBER</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.september(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">OCTOBER</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.october(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">NOVEMBER</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.november(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-1">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">DECEMBER</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true">
+                                            {{ form.december(rows='2') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            <!-- Area Chart -->
+                            <div class="col-12">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">NOTES</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800" contenteditable="true" aria-multiline="true" id="test">
+                                            {{ form.notes(rows='4') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="input-group-append">
+                                <div class="form-group">
+                                    {{ form.submit(class='btn btn-outline-primary') }}
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Content Row -->
+                </div>
+                <!-- /.container-fluid -->
+            </form>
+            </div>
+            <!-- End of Main Content -->
+
+        <!-- </div> -->
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+
+    <script type="text/javascript">
+        $('#year').bind('change', function () { // bind change event to select
+        var url = $(this).val(); // get selected value
+        if (url != '') { // require a URL
+            window.location = "/goals/"+url; // redirect
+        }
+        return false;
+    });
+    </script>
+
+
+</body>
+</html>

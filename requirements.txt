@@ -5,6 +5,7 @@ dateparser==1.0.0
 dominate==2.6.0
 Flask==2.0.1
 Flask-Datepicker==0.14
+Flask-Migrate==3.0.0
 Flask-SQLAlchemy==2.5.1
 Flask-WTF==0.15.1
 GoogleNews==1.5.8
